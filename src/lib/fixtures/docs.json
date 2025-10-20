@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "id": "discovery",
+      "name": "Discovery",
+      "isOpen": true,
+      "documents": [
+        { "id": "d1", "title": "Target Validation Report", "type": "pdf" },
+        { "id": "d2", "title": "Lead Compound Summary", "type": "docx" }
+      ]
+    },
+    {
+      "id": "preclinical",
+      "name": "Preclinical",
+      "isOpen": false,
+      "documents": [
+        { "id": "p1", "title": "Tox Study Protocol v2", "type": "pdf" },
+        { "id": "p2", "title": "Pharmacokinetics Data", "type": "xlsx" },
+        { "id": "p3", "title": "IND Enabling Studies Plan", "type": "docx" }
+      ]
+    }
+  ]
+}
