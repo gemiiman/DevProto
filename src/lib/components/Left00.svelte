@@ -1,22 +1,49 @@
 <!-- src/lib/components/Left00.svelte -->
 <script lang="ts">
   import { Menu, Folder, Search, Terminal, Settings } from 'lucide-svelte';
+  import { showFinder, showCommandPalette, isTerminalOpen, openGraphTab, openTemplateTab } from '$lib/stores/layout';
 </script>
 
-<div class="fixed left-0 top-0 h-screen w-14 bg-gray-900 border-r border-gray-700 flex flex-col items-center py-2 z-50">
-  <button class="w-full h-10 flex items-center justify-center hover:bg-gray-800 text-gray-400 hover:text-white transition-colors">
-    <Menu class="w-5 h-5" />
+<style>
+  .icon-button:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+</style>
+
+<div class="h-full w-14 bg-gray-900 flex flex-col items-center py-2 shrink-0" style="border: none; border-right: 1px solid #333333;">
+  <button 
+    class="w-full h-10 flex items-center justify-center text-gray-500 hover:text-gray-300 transition-colors icon-button" 
+    style="background-color: transparent; border: none;"
+    on:click={() => showFinder.set(true)}
+  >
+    <Menu class="w-5 h-5" stroke-width="1.5" />
   </button>
-  <button class="w-full h-10 flex items-center justify-center hover:bg-gray-800 text-gray-400 hover:text-white transition-colors">
-    <Folder class="w-5 h-5" />
+  <button 
+    class="w-full h-10 flex items-center justify-center text-gray-500 hover:text-gray-300 transition-colors icon-button" 
+    style="background-color: transparent; border: none;"
+    on:click={() => openGraphTab()}
+  >
+    <Folder class="w-5 h-5" stroke-width="1.5" />
   </button>
-  <button class="w-full h-10 flex items-center justify-center hover:bg-gray-800 text-gray-400 hover:text-white transition-colors">
-    <Search class="w-5 h-5" />
+  <button 
+    class="w-full h-10 flex items-center justify-center text-gray-500 hover:text-gray-300 transition-colors icon-button" 
+    style="background-color: transparent; border: none;"
+    on:click={() => openTemplateTab()}
+  >
+    <Search class="w-5 h-5" stroke-width="1.5" />
   </button>
-  <button class="w-full h-10 flex items-center justify-center hover:bg-gray-800 text-gray-400 hover:text-white transition-colors">
-    <Terminal class="w-5 h-5" />
+  <button 
+    class="w-full h-10 flex items-center justify-center text-gray-500 hover:text-gray-300 transition-colors icon-button" 
+    style="background-color: transparent; border: none;"
+    on:click={() => isTerminalOpen.update(v => !v)}
+  >
+    <Terminal class="w-5 h-5" stroke-width="1.5" />
   </button>
-  <button class="w-full h-10 flex items-center justify-center hover:bg-gray-800 text-gray-400 hover:text-white transition-colors">
-    <Settings class="w-5 h-5" />
+  <button 
+    class="w-full h-10 flex items-center justify-center text-gray-500 hover:text-gray-300 transition-colors icon-button" 
+    style="background-color: transparent; border: none;"
+    on:click={() => showCommandPalette.set(true)}
+  >
+    <Settings class="w-5 h-5" stroke-width="1.5" />
   </button>
 </div>
